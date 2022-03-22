@@ -7,6 +7,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adv160419051week4.R
 import com.example.adv160419051week4.model.Student
+import com.example.adv160419051week4.util.loadImage
 import kotlinx.android.synthetic.main.fragment_student_detail.view.*
 import kotlinx.android.synthetic.main.student_list_item.view.*
 
@@ -29,6 +30,7 @@ class StudentListAdapter(val studentList:ArrayList<Student>):RecyclerView.Adapte
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
         holder.view.txtId.text = studentList[position].id
         holder.view.txtName.text = studentList[position].name
+        holder.view.imageView.loadImage(studentList[position].photoUrl.toString(), holder.view.progressBar)
 
         holder.view.btnDetail.setOnClickListener {
             val action = StudentListFragmentDirections.actionStudentDetail()
