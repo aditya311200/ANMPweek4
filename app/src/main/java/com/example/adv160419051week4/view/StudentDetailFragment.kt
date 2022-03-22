@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.adv160419051week4.R
+import com.example.adv160419051week4.util.loadImage
 import com.example.adv160419051week4.viewmodel.DetailViewModel
 import kotlinx.android.synthetic.main.fragment_student_detail.*
 import kotlinx.android.synthetic.main.student_list_item.*
@@ -42,6 +43,8 @@ class StudentDetailFragment : Fragment() {
             txtNameDetail.setText(it.name)
             txtBod.setText(it.bod)
             txtPhone.setText(it.phone)
+
+            imageView2.loadImage(it.photoUrl.toString(), progressBar2)
         })
     }
 }
